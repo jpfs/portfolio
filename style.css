@@ -102,6 +102,12 @@ header h2 {
   transform: rotate(-18deg);
 }
 
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
 .label-container {
   position: absolute;
   right: 246px;
@@ -109,7 +115,7 @@ header h2 {
 }
 
 .label {
-  background-color: transparent;
+  background-color: var(--secondary-color);
   border: 2px solid var(--accent-color);
   padding: 0.5rem 1rem;
   color: var(--text-color);
@@ -117,6 +123,44 @@ header h2 {
   white-space: nowrap;
   transform: rotate(25deg);
   position: relative;
+}
+
+/* glowing border effect */
+.label::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--secondary-color);
+  z-index: 1;
+}
+
+.label span {
+  position: relative;
+  z-index: 2;
+}
+
+/* Put the glow effects behind everything */
+.label::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 70%,
+    var(--accent-color)
+  );
+  z-index: -1;
+  animation: 3s steam linear infinite;
+}
+
+/* animation keyframes */
+@keyframes steam {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
 }
 
 .arrow {
@@ -508,8 +552,31 @@ info-grid,
     font-size: 1.3rem;
   }
 
-  header img {
-    display: none;
+  .title-container {
+    position: relative; /* Add this */
+    margin-top: 100px; /* Add space for the arrow and label */
+  }
+
+  .arrow-container {
+    position: absolute;
+    right: 50%;
+    top: -75px;
+    transform: translateX(50%) rotate(-90deg);
+  }
+
+  .label-container {
+    position: absolute;
+    right: 50%;
+    top: -180px;
+    transform: translateX(50%);
+  }
+
+  .label {
+    transform: rotate(0deg);
+  }
+
+  .arrow {
+    width: 100px;
   }
 }
 
