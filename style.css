@@ -343,13 +343,13 @@ header h2 {
   flex-wrap: wrap;
 }
 
-/* Skill Container */
 .skill-container {
   width: 410px;
   max-width: 100%;
   border: 10px solid var(--primary-color);
   border-top: none;
   cursor: pointer;
+  position: relative;
 }
 
 .skill-container h3 {
@@ -434,6 +434,71 @@ header h2 {
 .skill-container:hover .progress-number {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Skills Section - Hover Hint */
+/* Add the pulse animation keyframes */
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.05);
+  }
+  100% {
+    opacity: 0.3;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.skill-container::before {
+  content: "Hover me";
+  position: absolute;
+  top: -40px;
+  right: 20px;
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  font-weight: 500;
+  opacity: 1;
+  animation: pulse 2s ease-in-out infinite;
+  transition: all 0.5s ease;
+}
+
+/* Hide hint when progress bars appear */
+.skill-container:hover::before {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: none;
+}
+
+/* Keep the existing progress bar animations */
+.progress-wrapper progress::-webkit-progress-value {
+  background-color: var(--accent-color);
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+}
+
+.skill-container:hover .progress-wrapper progress::-webkit-progress-value {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* For Firefox compatibility */
+.progress-wrapper progress::-moz-progress-bar {
+  background-color: var(--accent-color);
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+}
+
+.skill-container:hover .progress-wrapper progress::-moz-progress-bar {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 /* Projects Section */
