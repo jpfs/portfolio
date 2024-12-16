@@ -324,6 +324,7 @@ header h2 {
 }
 
 /* Skills Section */
+
 #skill-section {
   padding: 80px 20px 150px 20px;
   background-color: var(--secondary-color);
@@ -342,11 +343,13 @@ header h2 {
   flex-wrap: wrap;
 }
 
+/* Skill Container */
 .skill-container {
-  width: 400px;
+  width: 410px;
   max-width: 100%;
   border: 10px solid var(--primary-color);
   border-top: none;
+  cursor: pointer;
 }
 
 .skill-container h3 {
@@ -365,10 +368,72 @@ header h2 {
   padding: 15px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.skill-container ul li progress {
-  accent-color: var(--accent-color);
+/* Progress Wrapper and Number */
+.progress-wrapper {
+  position: relative;
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.progress-number {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s ease;
+}
+
+/* Progress Bar Styles */
+.progress-wrapper progress {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.progress-wrapper progress::-webkit-progress-bar {
+  background-color: #ffffff20;
+  border-radius: 4px;
+}
+
+.progress-wrapper progress::-webkit-progress-value {
+  background-color: var(--accent-color);
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+}
+
+/* Firefox styles */
+.progress-wrapper progress::-moz-progress-bar {
+  background-color: var(--accent-color);
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+}
+
+/* Hover States */
+.skill-container:hover .progress-wrapper progress::-webkit-progress-value {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.skill-container:hover .progress-wrapper progress::-moz-progress-bar {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.skill-container:hover .progress-number {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Projects Section */
@@ -694,6 +759,23 @@ info-grid,
   .pointer-container {
     display: none;
   }
+
+  #skill-section h2 {
+    font-size: 2rem;
+  }
+
+  .skill-container {
+    width: 100%;
+  }
+
+  #skill-section .wrapper {
+    gap: 30px;
+  }
+
+  .progress-wrapper {
+    width: 150px;
+  }
+
   .footer-container {
     grid-template-columns: 1fr;
   }

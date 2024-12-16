@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-    <link rel="stylesheet" href="style copy 2.css" />
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -24,9 +24,21 @@
 
     <header id="about-me">
       <img src="assests/joao_santos.jpg" />
-      <div class="container">
+      <div id="text" class="container">
         <div class="title-container">
-          <h1>João Santos</h1>
+          <a href="#skill-section" class="word fancy">
+            <h1>
+              <span class="name">
+                <span class="letter">J</span><span class="letter">o</span
+                ><span class="letter">ã</span><span class="letter">o</span>
+              </span>
+              <span class="name">
+                <span class="letter">S</span><span class="letter">a</span
+                ><span class="letter">n</span><span class="letter">t</span
+                ><span class="letter">o</span><span class="letter">s</span>
+              </span>
+            </h1>
+          </a>
           <div class="arrow-container">
             <div class="arrow"></div>
           </div>
@@ -34,9 +46,9 @@
             <div class="label"><span>Hover me</span></div>
           </div>
         </div>
-        <h2>Front-End Developer in Portugal</h2>
+        <h2 class="word">Front-End Developer in Portugal</h2>
         <div class="bio-content">
-          <div class="initial-content">
+          <div class="initial-content word">
             As an adventurous spirit and passionate wakeboarder, I've always
             believed in chasing dreams and embracing new challenges. My journey
             in the water sports world has led me to my current role as a social
@@ -47,7 +59,7 @@
             systems, to teaching young football players and sharing my love for
             wakeboarding as a Vice-President of the Portugal Wake Association.
           </div>
-          <div class="hidden-content">
+          <div class="hidden-content word">
             <p>
               My passion for technology and web development started with
               Harvard's CS50 course, where I discovered the exciting world of
@@ -188,7 +200,7 @@
                 <span class="icon"><i class="fas fa-phone"></i></span>
                 <div>
                   <h4>Phone</h4>
-                  <p>+351 123 456 789</p>
+                  <p>+351 932 861 191</p>
                 </div>
               </div>
               <div class="info-item">
@@ -237,6 +249,7 @@
     </footer>
 
     <script>
+      //read more and read less JS//
       document.addEventListener("DOMContentLoaded", function () {
         const readMoreBtn = document.querySelector(".read-more-btn");
         const hiddenContent = document.querySelector(".hidden-content");
@@ -260,7 +273,7 @@
                 headerTitle.getBoundingClientRect().top +
                 window.scrollY -
                 navHeight +
-                0; // Changed to +0 to be exactly at h2 level
+                0;
               window.scrollTo({
                 top: targetScroll,
                 behavior: "smooth",

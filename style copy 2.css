@@ -61,7 +61,7 @@ body {
 /* Scroll Anchor */
 .scroll-anchor {
   position: absolute;
-  top: 50px;
+  top: 30px;
 }
 
 /* Header Section */
@@ -98,8 +98,8 @@ header h2 {
 .arrow-container {
   position: absolute;
   right: 390px;
-  top: 25%;
-  transform: rotate(-18deg);
+  top: 21%;
+  transform: rotate(-20deg);
 }
 
 @property --angle {
@@ -110,8 +110,8 @@ header h2 {
 
 .label-container {
   position: absolute;
-  right: 246px;
-  top: 23%;
+  right: 250px;
+  top: 19%;
 }
 
 .label {
@@ -187,6 +187,96 @@ header h2 {
 
 .arrow::after {
   transform: rotate(35deg) translateX(3px) translateY(5px);
+}
+
+/* efeito no João Santos */
+
+.fancy {
+  text-decoration: none;
+  color: var(--text-color);
+  cursor: pointer;
+  display: block;
+}
+
+#text:has(.fancy:hover) .word:not(.fancy:hover) {
+  opacity: 0.2;
+}
+
+.title-container {
+  width: 430px;
+}
+
+.fancy h1 {
+  display: flex;
+  gap: 1rem;
+}
+
+.name {
+  display: flex; /* This keeps letters together within each word */
+}
+
+.fancy .letter {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  transition: transform 350ms ease;
+}
+
+.fancy:hover .letter {
+  transition-duration: 800ms;
+}
+
+/* João hover effects  */
+.fancy:hover .name:first-child .letter:nth-child(1) {
+  /* J */
+  transform: translate(-35%, -38%) rotate(-12deg);
+}
+
+.fancy:hover .name:first-child .letter:nth-child(2) {
+  /* o */
+  transform: translate(-22%, 33%) rotate(17deg);
+}
+
+.fancy:hover .name:first-child .letter:nth-child(3) {
+  /* ã */
+  transform: translate(-12%, -25%) rotate(-14deg);
+}
+
+.fancy:hover .name:first-child .letter:nth-child(4) {
+  /* o */
+  transform: translate(-5%, 28%) rotate(13deg);
+}
+
+/* Santos hover effects */
+.fancy:hover .name:last-child .letter:nth-child(1) {
+  /* S */
+  transform: translate(2%, -42%) rotate(-16deg);
+}
+
+.fancy:hover .name:last-child .letter:nth-child(2) {
+  /* a */
+  transform: translate(-3%, 35%) rotate(15deg);
+}
+
+.fancy:hover .name:last-child .letter:nth-child(3) {
+  /* n */
+  transform: translate(4%, -22%) rotate(-13deg);
+}
+
+.fancy:hover .name:last-child .letter:nth-child(4) {
+  /* t */
+  transform: translate(-2%, 31%) rotate(18deg);
+}
+
+.fancy:hover .name:last-child .letter:nth-child(5) {
+  /* o */
+  transform: translate(3%, -37%) rotate(-15deg);
+}
+
+.fancy:hover .name:last-child .letter:nth-child(6) {
+  /* s */
+  transform: translate(-1%, 29%) rotate(14deg);
 }
 
 /* Bio Content */
@@ -548,13 +638,17 @@ info-grid,
     font-size: 10vw;
   }
 
+  .fancy h1 {
+    justify-content: center;
+  }
+
   header h2 {
     font-size: 1.3rem;
   }
 
   .title-container {
-    position: relative; /* Add this */
-    margin-top: 100px; /* Add space for the arrow and label */
+    position: relative;
+    margin-top: 100px;
   }
 
   .arrow-container {
