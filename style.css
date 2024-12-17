@@ -600,6 +600,11 @@ header h2 {
 /* Projects Section */
 
 /* Projects Section Styles */
+
+#carousel-img {
+  transition: opacity 0.4s ease-in-out;
+}
+
 #projects-section {
   padding: 70px 20px;
   background-color: var(--primary-color);
@@ -608,7 +613,7 @@ header h2 {
 #projects-section h2 {
   font-size: 3rem;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 35px;
   color: var(--text-color);
 }
 
@@ -675,6 +680,7 @@ header h2 {
   justify-content: center;
   align-items: center;
   transition: transform 0.3s ease, background-color 0.3s ease;
+  text-decoration: none;
 }
 
 .project-link.live {
@@ -696,13 +702,13 @@ header h2 {
 
 /* Project Content */
 .project-content {
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
 }
 
 .project-content h3 {
   font-size: 1.5rem;
   color: var(--text-color);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .project-content p {
@@ -716,6 +722,7 @@ header h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  padding: 0.5rem 0;
 }
 
 .project-tags span {
