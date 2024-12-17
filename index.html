@@ -13,10 +13,10 @@
   <body>
     <nav class="navbar">
       <ul>
-        <li><a href="#about-anchor">About Me</a></li>
-        <li><a href="#skill-section">My Skills</a></li>
-        <li><a href="#projects-section">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li data-value="About Me"><a href="#about-anchor">About Me</a></li>
+        <li data-value="My Skills"><a href="#skill-section">My Skills</a></li>
+        <li data-value="Projects"><a href="#projects-section">Projects</a></li>
+        <li data-value="Contact"><a href="#contact">Contact</a></li>
       </ul>
     </nav>
 
@@ -49,28 +49,29 @@
         <h2 class="word">Front-End Developer in Portugal</h2>
         <div class="bio-content">
           <div class="initial-content word">
-            As an adventurous spirit and passionate wakeboarder, I've always
-            believed in chasing dreams and embracing new challenges. My journey
-            in the water sports world has led me to my current role as a social
-            host at Hip-notics cable park in Turkey, where I create
-            unforgettable experiences for guests from around the world. Before
-            this, my professional path took me from working as an Animal
-            Production Engineer, where I led teams and optimized livestock
-            systems, to teaching young football players and sharing my love for
-            wakeboarding as a Vice-President of the Portugal Wake Association.
+            My passion for technology and web development ignited when I
+            discovered the exciting world of programming through Harvard's CS50
+            course. This initial spark led me to dive deeper into web
+            development through Udemy's 'Web Developer Bootcamp,' where I
+            mastered HTML and CSS fundamentals, and their 'CSS - MASTERING
+            ANIMATIONS' course, which taught me how to bring websites to life
+            with engaging animations. This new chapter has ignited a fire in me
+            - I'm now determined to transition into front-end development,
+            combining my creative energy and problem-solving skills to build
+            beautiful, user-friendly websites.
           </div>
           <div class="hidden-content word">
             <p>
-              My passion for technology and web development started with
-              Harvard's CS50 course, where I discovered the exciting world of
-              programming. This spark led me to dive deeper into web development
-              through Udemy's 'Web Developer Bootcamp,' where I mastered HTML
-              and CSS fundamentals, and their 'CSS - MASTERING ANIMATIONS'
-              course, which taught me how to bring websites to life with
-              engaging animations. This new chapter has ignited a fire in me -
-              I'm now determined to transition into front-end development,
-              combining my creative energy and problem-solving skills to build
-              beautiful, user-friendly websites.
+              As an adventurous spirit and passionate wakeboarder, I've always
+              believed in chasing dreams and embracing new challenges. My
+              journey in the water sports world has led me to my current role as
+              a social host at Hip-notics cable park in Turkey, where I create
+              unforgettable experiences for guests from around the world. Before
+              this, my professional path took me from working as an Animal
+              Production Engineer, where I led teams and optimized livestock
+              systems, to teaching young football players and sharing my love
+              for wakeboarding as a Vice-President of the Portugal Wake
+              Association.
             </p>
             <p>
               My experience in leadership roles, coupled with my natural
@@ -370,6 +371,43 @@
             });
           }
         });
+      });
+
+      //random letter navbar cool//
+
+      let interval = null;
+
+      // Store the original text for each nav item
+      document.querySelectorAll(".navbar a").forEach((link) => {
+        // Store original text in data attribute
+        link.dataset.value = link.textContent;
+
+        link.onmouseover = (event) => {
+          let iteration = 0;
+          const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+          // Clear any existing intervals
+          clearInterval(interval);
+
+          interval = setInterval(() => {
+            event.target.innerText = event.target.dataset.value
+              .split("")
+              .map((letter, index) => {
+                if (index < iteration) {
+                  return event.target.dataset.value[index];
+                }
+
+                return letters[Math.floor(Math.random() * 26)];
+              })
+              .join("");
+
+            if (iteration >= event.target.dataset.value.length) {
+              clearInterval(interval);
+            }
+
+            iteration += 1 / 3;
+          }, 30);
+        };
       });
     </script>
   </body>
