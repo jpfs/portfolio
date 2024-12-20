@@ -12,10 +12,7 @@
   </head>
   <body>
     <nav class="navbar">
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span class="hamburger"></span>
-      </button>
-      <ul class="nav-menu">
+      <ul>
         <li data-value="About Me"><a href="#about-anchor">About Me</a></li>
         <li data-value="My Skills"><a href="#skill-section">My Skills</a></li>
         <li data-value="Projects"><a href="#projects-section">Projects</a></li>
@@ -388,22 +385,6 @@
     </footer>
 
     <script>
-      //nav bar//
-      const navToggle = document.querySelector(".nav-toggle");
-      const navMenu = document.querySelector(".nav-menu");
-
-      navToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("show");
-        navToggle.classList.toggle("active");
-      });
-
-      // Close menu when clicking a link
-      document.querySelectorAll(".nav-menu a").forEach((link) => {
-        link.addEventListener("click", () => {
-          navMenu.classList.remove("show");
-          navToggle.classList.remove("active");
-        });
-      });
       //read more and read less JS//
       document.addEventListener("DOMContentLoaded", function () {
         const readMoreBtn = document.querySelector(".read-more-btn");
