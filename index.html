@@ -258,7 +258,7 @@
               <span>HTML</span>
               <span>Tailwind</span>
               <span>Flowbite</span>
-              <span>Responsive Design</span>
+              <span>JavaScript</span>
             </div>
             <p>
               Re imagined and rebuilt the Sõsu Kombucha website using Tailwind
@@ -298,13 +298,80 @@
             <div class="project-tags">
               <span>HTML</span>
               <span>CSS</span>
-              <span>JavaScript</span>
+              <span>UI Design</span>
             </div>
             <p>
               A comprehensive wakeboarding resource that covers the sport's rich
               history, beginner guides, and detailed trick tutorials for all
               skill levels. Features interactive learning paths, video
               demonstrations, and a vibrant community section.
+            </p>
+          </div>
+        </article>
+
+        <!-- Project 4 - React Weather App -->
+        <article class="project-card">
+          <div class="project-image">
+            <video class="preview-video" muted loop playsinline>
+              <source
+                src="assests/Accomodation _ Pricing – Hipnotics - Google Chrome 2024-12-25 21-03-34.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <div class="project-links">
+              <a
+                href="https://www.hipnotics.nl/accomodation-pricing/"
+                class="project-link live"
+                target="_blank"
+              >
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Hipnotics Cable Park - Pricing Section</h3>
+            <div class="project-tags">
+              <span>Elementor</span>
+              <span>Responsive Design</span>
+              <span>WordPress</span>
+              <span>UI Design</span>
+            </div>
+            <p>
+              Redesigned and implemented the pricing section for Hipnotics Cable
+              Park using Elementor. Created a modern, user-friendly layout that
+              displays various package options and pricing tiers.
+            </p>
+          </div>
+        </article>
+
+        <!-- Project 5 - CSS Animation Showcase -->
+        <article class="project-card">
+          <div class="project-image">
+            <video class="preview-video" muted loop playsinline>
+              <source src="assests/animations_preview.mp4" type="video/mp4" />
+            </video>
+            <div class="project-links">
+              <a href="#" class="project-link live" target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+              <a href="#" class="project-link github" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>UI Animation Collection</h3>
+            <div class="project-tags">
+              <span>CSS</span>
+              <span>Animations</span>
+              <span>JavaScript</span>
+              <span>Interactive Design</span>
+            </div>
+            <p>
+              A showcase of advanced CSS animations and interactive UI elements.
+              Features custom-built hover effects, transitions, and
+              micro-interactions demonstrating modern web animation techniques
+              and attention to detail.
             </p>
           </div>
         </article>
@@ -530,29 +597,28 @@
         observer.observe(carouselImg);
       });
 
-      //video project 3//
+      //all videos play//
       document.addEventListener("DOMContentLoaded", function () {
-        const video = document.querySelector(".preview-video");
+        const videos = document.querySelectorAll(".preview-video");
 
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
-              // If the video is in view
               if (entry.isIntersecting) {
-                video.play().catch((error) => {
+                entry.target.play().catch((error) => {
                   console.log("Video play error:", error);
                 });
               } else {
-                video.pause();
+                entry.target.pause();
               }
             });
           },
           {
-            threshold: 0.5, // 50% of the video needs to be visible
+            threshold: 0.5,
           }
         );
 
-        observer.observe(video);
+        videos.forEach((video) => observer.observe(video));
       });
     </script>
   </body>

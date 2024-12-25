@@ -672,7 +672,17 @@ header h2 {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  padding: 0 20px;
+}
+
+.project-card:nth-last-child(-n + 2) {
+  transform: translateX(50%);
+}
+
+.project-card:nth-last-child(-n + 2):hover {
+  transform: translateX(50%) translateY(-5px);
 }
 
 /* Project Card */
